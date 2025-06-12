@@ -24,20 +24,14 @@ public class DataInit implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        // -------------------------------
-        // Crear 8 Estacionamientos
-        // -------------------------------
         for (int i = 1; i <= 8; i++) {
             estacionamientoRepo.save(Estacionamiento.builder()
                     .espaciosDisponibles(20 - i)
                     .espaciosOcupados(i)
-                    .activo(i == 1) // Solo el primero está activo
+                    .activo(i == 1)
                     .build());
         }
 
-        // -------------------------------
-        // Crear 8 Vehículos
-        // -------------------------------
         Vehiculo[] vehiculos = new Vehiculo[8];
         for (int i = 1; i <= 8; i++) {
             vehiculos[i - 1] = vehiculoRepo.save(Vehiculo.builder()
@@ -46,9 +40,6 @@ public class DataInit implements CommandLineRunner {
                     .build());
         }
 
-        // -------------------------------
-        // Crear 8 Registros
-        // -------------------------------
         for (int i = 0; i < 8; i++) {
             boolean salio = i % 2 == 0;
             LocalDateTime entrada = LocalDateTime.now().minusHours(i + 1);
@@ -62,7 +53,5 @@ public class DataInit implements CommandLineRunner {
                     .monto(monto)
                     .build());
         }
-
-        System.out.println("✅ Datos iniciales creados (8 por entidad).");
     }
 }

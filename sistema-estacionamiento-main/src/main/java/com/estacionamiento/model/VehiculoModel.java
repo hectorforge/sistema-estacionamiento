@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -34,6 +35,8 @@ public class VehiculoModel implements VehiculoUseCase {
         registroRepo.save(registro);
         return vehiculoRegistrado;
     }
+    
+    
 
     @Override
     public double registrarSalida(int idVehiculo) {
@@ -56,4 +59,12 @@ public class VehiculoModel implements VehiculoUseCase {
 
         return monto;
     }
+
+
+
+	@Override
+	public List<Vehiculo> findAll() {
+		// TODO Auto-generated method stub
+		return vehiculoRepo.findAll();
+	}
 }
