@@ -12,6 +12,7 @@ import lombok.*;
 public class Vehiculo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private int idVehiculo;
 	
 	@Column(name = "placa")
