@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Estacionamiento {
 	private int idEstacionamiento;
-	private int espacios;
+	private int espaciosDisponibles;
+	private int espaciosOcupados;
 	private boolean activo;
 }
