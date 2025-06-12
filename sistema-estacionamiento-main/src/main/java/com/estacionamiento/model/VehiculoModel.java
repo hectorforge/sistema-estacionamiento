@@ -50,7 +50,7 @@ public class VehiculoModel implements VehiculoUseCase {
         registro.setHoraSalida(salida);
 
         long minutos = Duration.between(registro.getHoraEntrada(), salida).toMinutes();
-        double monto = Math.ceil(minutos / 60.0) * 2.0;
+        double monto = Math.ceil(minutos / 60.0) * 30.0;
 
         registro.setMonto(monto);
         registroRepo.save(registro);

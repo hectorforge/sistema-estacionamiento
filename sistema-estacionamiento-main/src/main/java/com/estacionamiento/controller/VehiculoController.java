@@ -4,7 +4,9 @@ import com.estacionamiento.entity.Vehiculo;
 import com.estacionamiento.usecase.VehiculoUseCase;
 import lombok.RequiredArgsConstructor;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.web.bind.annotation.*;
 
@@ -26,7 +28,12 @@ public class VehiculoController {
     }
 
     @PostMapping("/salida/{id}")
-    public double registrarSalida(@PathVariable int id) {
-        return vehiculoUseCase.registrarSalida(id);
+    public Map<String, Double> registrarSalida(@PathVariable int id) {
+        double montoPagar = vehiculoUseCase.registrarSalida(id);
+
+        Map<String, Double> respuesta = new HashMap();
+        respuesta.put("montoPagar", montoPagar);
+
+        return respuesta;
     }
 }
