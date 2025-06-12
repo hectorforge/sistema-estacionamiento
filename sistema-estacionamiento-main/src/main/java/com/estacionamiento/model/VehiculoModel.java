@@ -41,7 +41,7 @@ public class VehiculoModel implements VehiculoUseCase {
                 .orElseThrow(() -> new RuntimeException("Vehículo no encontrado"));
 
         Registro registro = registroRepo.findByVehiculoAndHoraSalidaIsNull(vehiculo)
-                .orElseThrow(() -> new RuntimeException("El vehículo no tiene una entrada activa"));
+                .orElseThrow(() -> new RuntimeException("El vehiculo no tiene una entrada activa"));
 
         LocalDateTime salida = LocalDateTime.now();
         registro.setHoraSalida(salida);

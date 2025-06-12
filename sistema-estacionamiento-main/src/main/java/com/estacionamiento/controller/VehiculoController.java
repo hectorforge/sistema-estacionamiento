@@ -1,23 +1,24 @@
 package com.estacionamiento.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.estacionamiento.entity.Vehiculo;
-
+import com.estacionamiento.usecase.VehiculoUseCase;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/vehiculo")
 @RequiredArgsConstructor
 public class VehiculoController {
-	
-	
-	@PostMapping("/registrar")
-	public Vehiculo registrar() {
-		return null;
-	}
-	
+
+    private final VehiculoUseCase vehiculoUseCase;
+
+    @PostMapping("/ingreso")
+    public Vehiculo registrarIngreso(@RequestBody Vehiculo vehiculo) {
+        return vehiculoUseCase.registrarIngreso(vehiculo);
+    }
+
+    @PostMapping("/salida/{id}")
+    public double registrarSalida(@PathVariable int id) {
+        return vehiculoUseCase.registrarSalida(id);
+    }
 }
