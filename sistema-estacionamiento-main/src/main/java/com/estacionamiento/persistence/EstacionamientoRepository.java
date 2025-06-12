@@ -7,5 +7,5 @@ import com.estacionamiento.entity.Estacionamiento;
 
 @Repository
 public interface EstacionamientoRepository extends JpaRepository<Estacionamiento, Integer>{
-
+	
 }
